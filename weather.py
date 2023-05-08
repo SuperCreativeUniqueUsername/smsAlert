@@ -3,7 +3,7 @@ import datetime
 
 from env_canada import ECWeather
 
-ec_en = ECWeather(coordinates=(53.619583, -113.943028))
+ec_en = ECWeather()
 
 asyncio.run(ec_en.update())
 
