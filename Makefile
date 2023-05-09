@@ -1,4 +1,5 @@
 push:
-	git add . -e test
+	git add --all
+	git rm --cached personal
 	git commit
 	git push
