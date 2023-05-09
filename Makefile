@@ -1,4 +1,4 @@
 push:
-	git add .
+	git add . -e test
 	git commit
 	git push
