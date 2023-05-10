@@ -1,7 +1,6 @@
 # this class will read in an the personal file and store the data for easy access
 
-class PersonalData():
-    
+class PersonalData(): 
     def __init__(self,filename = 'personal') -> None:
         self.personalData = {
             'X' : None,
@@ -51,4 +50,3 @@ if __name__ == "__main__":
     print(test.get('email'))
     print(test.get('password'))
     print(test)
-
