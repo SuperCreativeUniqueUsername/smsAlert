@@ -1,7 +1,7 @@
 # this class will read in an the personal file and store the data for easy access
 
 class PersonalData(): 
-    def __init__(self,filename = 'personal') -> None:
+    def __init__(self,filename = 'code/personal') -> None: # i need to somehow fic this so we get error correction on this line
         self.personalData = {
             'X' : None,
             'Y' : None,
@@ -17,7 +17,6 @@ class PersonalData():
         for key in self.personalData:
             str += f'{key}: {self.personalData[key]}\n'
         return str.strip()
-
 
     def readfile(self):
         # this method updates self.personalData from the file
