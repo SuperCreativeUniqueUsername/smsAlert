@@ -1,2 +1,6 @@
 # Read Me
-please create a file called `personal` that has the format of the `personalFormat` file. this will allow for youre infomation to be accurate.
+please create a file with the name `personal` with the contents 
+``X: xCord
+Y: yCord
+email: youremail@email.com
+password: yourpassword``
