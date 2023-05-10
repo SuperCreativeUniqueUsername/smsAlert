@@ -1,3 +1,4 @@
-cords: (x,y)
+X: xCord
+Y: yCord
 email: youremail@email.com
 password: yourpassword
