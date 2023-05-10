@@ -10,16 +10,12 @@ class PersonalData():
         }
         self.filename = filename    
         # read in the data give an error if it doesnt work
-        if not(self.readfile()):
-            print('Personal file error')
+        self.readfile()
     
     def __str__(self) -> str:
         str = ''
         for key in self.personalData:
-            str += key
-            str += ': '
-            str += self.personalData[key]
-            str += '\n'
+            str += f'{key}: {self.personalData[key]}\n'
         return str.strip()
 
 
@@ -33,9 +29,9 @@ class PersonalData():
                     self.personalData[line.split(':')[0].strip()] = \
                     line.split(':')[1].strip()
                     line = file.readline()
-                return 1
-        except:
-            return 0
+        except FileNotFoundError:
+            raise Exception('Personal file not found, maybe the spelling of the personal file is incorrect')
+
         
     def get(self, value = None):
         if (value == None):
