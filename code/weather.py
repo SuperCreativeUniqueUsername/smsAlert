@@ -1,6 +1,6 @@
 # check list
 # make it into a class
-# take in the data from 
+# take in the data from the reinperaonl
 
 import asyncio
 import datetime
