@@ -1,7 +1,7 @@
 # this class will read in an the personal file and store the data for easy access
 
 class PersonalData(): 
-    def __init__(self,filename = 'code/personal') -> None: # i need to somehow fic this so we get error correction on this line
+    def __init__(self, filename = 'personal') -> None: # i need to somehow ficx this so we get error correction on this line
         self.personalData = {
             'X' : None,
             'Y' : None,
@@ -31,7 +31,6 @@ class PersonalData():
         except FileNotFoundError:
             raise Exception('Personal file not found, maybe the spelling of the personal file is incorrect')
 
-        
     def get(self, value = None):
         if (value == None):
             print('error invalid value')
