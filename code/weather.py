@@ -1,3 +1,7 @@
+# check list
+# make it into a class
+# take in the data from 
+
 import asyncio
 import datetime
 

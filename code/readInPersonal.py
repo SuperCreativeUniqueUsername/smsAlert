@@ -6,7 +6,8 @@ class PersonalData():
             'X' : None,
             'Y' : None,
             'email' : None,
-            'password' : None
+            'password' : None,
+            'phone' : None
         }
         self.filename = filename    
         # read in the data give an error if it doesnt work
@@ -39,8 +40,4 @@ class PersonalData():
         
 if __name__ == "__main__":
     test = PersonalData()
-    print(test.get('X'))
-    print(test.get('Y'))
-    print(test.get('email'))
-    print(test.get('password'))
     print(test)
