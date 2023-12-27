@@ -11,7 +11,7 @@ class PersonalData():
         }
         self.filename = filename    
         # read in the data give an error if it doesnt work
-        self.readfile()
+        self.read_file()
     
     def __str__(self) -> str:
         str = ''
@@ -19,7 +19,7 @@ class PersonalData():
             str += f'{key}: {self.personalData[key]}\n'
         return str.strip()
 
-    def readfile(self):
+    def read_file(self):
         # this method updates self.personalData from the file
         try:
             with open(self.filename, 'r') as file:
