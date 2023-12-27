@@ -7,15 +7,6 @@ class Weather():
     
     def __init__(self, xCord = 0, yCord = 0) -> None:
         self.ec_en = ECWeather(coordinates=(xCord, yCord))
-        self.days = {
-            1: 'Monday',
-            2: 'Tuesday',
-            3: 'Wednesday',
-            4: 'Thursday',
-            5: 'Friday',
-            6: 'Saturday',
-            7: 'Sunday'
-        }
         asyncio.run(self.ec_en.update())
         self.tempDic = { 
             datetime.datetime.now().hour:self.ec_en.conditions["temperature"]["value"]
