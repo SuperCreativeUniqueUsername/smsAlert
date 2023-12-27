@@ -34,7 +34,7 @@ class Weather():
         self.h.reset_hour()
 
         for info in self.ec_en.hourly_forecasts:
-            weatherReport += "\n{}: {}*C, {}%, {}".format(str(h), info['temperature'], info['precip_probability'], info['condition'])
+            weatherReport += "\n{}: {}*C, {}%, {}".format(str(self.h), info['temperature'], info['precip_probability'], info['condition'])
             self.h.increment()
             
         self.h.reset_hour()

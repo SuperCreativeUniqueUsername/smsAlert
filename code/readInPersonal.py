@@ -11,7 +11,6 @@ class PersonalData():
         }
         self.filename = filename    
         # read in the data give an error if it doesnt work
-        self.read_file()
     
     def __str__(self) -> str:
         str = ''

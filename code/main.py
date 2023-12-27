@@ -1,27 +1,28 @@
 import smtplib
-import sys
- 
-EMAIL = "EMAIL"
-PASSWORD = "PASSWORD"
- 
-def send_message(phone_number, carrier, message):
-    recipient = phone_number + CARRIERS[carrier]
-    auth = (EMAIL, PASSWORD)
- 
-    server = smtplib.SMTP("smtp.gmail.com", 587)
-    server.starttls()
-    server.login(auth[0], auth[1])
- 
-    server.sendmail(auth[0], recipient, message)
- 
- 
+from readInPersonal import PersonalData
+from weather import Weather
+
+def send_message(information, body):
+    recipient = information.get('phone') + "@msg.telus.com"
+
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(information.get('email'), information.get('password'))
+
+        subject = "Weather Update"
+        message = f"Subject: {subject}\n\n{body}"
+
+        server.sendmail(information.get("email"), recipient, message)
+
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        server.quit()
+
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
-        print(f"Usage: python3 {sys.argv[0]} <PHONE_NUMBER> <CARRIER> <MESSAGE>")
-        sys.exit(0)
- 
-    phone_number = sys.argv[1]
-    carrier = sys.argv[2]
-    message = sys.argv[3]
- 
-    send_message(phone_number, carrier, message)
+    weather = Weather()
+    body = weather.get_weather_report()
+    information = PersonalData('personal')
+    information.read_file()
+    send_message(information, body)
