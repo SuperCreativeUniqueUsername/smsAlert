@@ -3,7 +3,7 @@
 ## Running instructions (Unix)
 please create a file with the name `personal` in the 'code/' file with the contents 
 please note that this will only work the provider telus telus 
-watch this video to get the pass word: https://www.youtube.com/watch?v=Y_u5KIeXiVI
+watch this video to get the password: https://www.youtube.com/watch?v=Y_u5KIeXiVI
 ```
 X: xCord
 Y: yCord
