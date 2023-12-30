@@ -21,8 +21,8 @@ def send_message(information, body):
         server.quit()
 
 if __name__ == "__main__":
-    weather = Weather()
-    body = weather.get_weather_report()
     information = PersonalData('personal')
     information.read_file()
+    weather = Weather(float(information.get('X')), float(information.get('Y')))
+    body = weather.get_weather_report()
     send_message(information, body)

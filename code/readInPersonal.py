@@ -1,42 +1,39 @@
-# this class will read in an the personal file and store the data for easy access
-
 class PersonalData(): 
-    def __init__(self, filename = 'personal') -> None: # i need to somehow ficx this so we get error correction on this line
+    def __init__(self, filename='personal') -> None:
         self.personalData = {
-            'X' : None,
-            'Y' : None,
-            'email' : None,
-            'password' : None,
-            'phone' : None
+            'X': None,
+            'Y': None,
+            'email': None,
+            'password': None,
+            'phone': None
         }
         self.filename = filename    
-        # read in the data give an error if it doesnt work
-    
+        # read in the data; give an error if it doesn't work
+        try:
+            self.read_file()
+        except FileNotFoundError:
+            raise Exception(f'Personal file not found: {self.filename}')
+
     def __str__(self) -> str:
-        str = ''
+        result = ''
         for key in self.personalData:
-            str += f'{key}: {self.personalData[key]}\n'
-        return str.strip()
+            result += f'{key}: {self.personalData[key]}\n'
+        return result.strip()
 
     def read_file(self):
         # this method updates self.personalData from the file
         try:
             with open(self.filename, 'r') as file:
-                line = file.readline()
-                while line:
-                    # places the data from the file into the class for easy access
-                    self.personalData[line.split(':')[0].strip()] = \
-                    line.split(':')[1].strip()
-                    line = file.readline()
+                for line in file:
+                    key, value = map(str.strip, line.split(':', 1))
+                    self.personalData[key] = value
         except FileNotFoundError:
-            raise Exception('Personal file not found, maybe the spelling of the personal file is incorrect')
+            raise Exception(f'Personal file not found: {self.filename}')
 
-    def get(self, value = None):
-        if (value == None):
-            print('error invalid value')
-        else:
-            return self.personalData[value]
-        
+    def get(self, value='X'):
+        return self.personalData.get(value, f'Error: {value} is not a valid key')
+
+
 if __name__ == "__main__":
     test = PersonalData()
     print(test)
