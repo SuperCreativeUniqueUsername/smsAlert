@@ -21,6 +21,8 @@ def send_message(information, subject ,body):
 if __name__ == "__main__":
     information = PersonalData('personal')
     information.read_file()
-    weather = Weather(float(information.get('X')), float(information.get('Y')))    
-    send_message(information, "Weather Report", weather.get_weather_report())
-    send_message(information, "Hourly Forecast", weather.get_hourly_forecast())
+    weather = Weather(float(information.get('X')), float(information.get('Y')))  
+    #send_message(information, "Weather Report", weather.get_weather_report())
+    #send_message(information, "Hourly Forecast", weather.get_hourly_forecast())
+    print(weather.get_AQHI_forecast())
+    #send_message(information, "AQHI Forecast", weather.get_AQHI_forecast())
