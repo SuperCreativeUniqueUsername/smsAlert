@@ -19,18 +19,23 @@ class Weather():
         # daily forecasts
         currentMessage = self.ec_en.daily_forecasts[0]['text_summary']
         weatherReport = format("It is currently " + str(currentTemp) + "*C.\n" + 
-                    currentMessage + "\n\n" +
-                    "Hourly Forecast:")
+                    currentMessage)
+        
+        return weatherReport
 
+    def get_hourly_forecast(self):
+        
+        hourlyForecast = "Hourly Forecast:"
+        
         self.h.reset_hour()
 
         for info in self.ec_en.hourly_forecasts:
-            weatherReport += "\n{}: {}*C, {}%, {}".format(str(self.h), info['temperature'], info['precip_probability'], info['condition'])
+            hourlyForecast += "\n{}: {}*C, {}%, {}".format(str(self.h), info['temperature'], info['precip_probability'], info['condition'])
             self.h.increment()
             
         self.h.reset_hour()
         
-        return weatherReport
+        return hourlyForecast
     
     def update_weather(self):
         asyncio.run(self.ec_en.update())
