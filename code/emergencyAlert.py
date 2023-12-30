@@ -1,5 +1,6 @@
 # checklist
 # make a class
+# this think kinda sucks and i might remove it
 
 import requests
 from bs4 import BeautifulSoup
