@@ -1,4 +1,4 @@
-# Read Me
+# Read Me (need to test if this is working)
 
 ## Running instructions (Unix)
 please create a file with the name `personal` in the 'code/' file with the contents 
