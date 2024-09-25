@@ -1,4 +1,5 @@
 # Read Me
+this is a test
 
 ## Running instructions (Unix)
 please create a file with the name `personal` in the 'code/' file with the contents 
